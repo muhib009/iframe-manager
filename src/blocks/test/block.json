@@ -1,0 +1,28 @@
+{
+	"apiVersion": 2,
+	"name": "postkit-blocks/test",
+	"version": "0.1.0",
+	"title": "Test",
+	"category": "postkit-blocks",
+	"icon": "wordpress",
+	"description": "Example Block",
+	"supports": {
+		"html": false,
+		"anchor": true
+	},
+	"attributes": {
+		"uniqueId": {
+			"type": "string"
+		},
+		"content": {
+			"type": "string"
+		},
+		"color": {
+			"type": "string"
+		}
+	},
+	"textdomain": "postkit-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}

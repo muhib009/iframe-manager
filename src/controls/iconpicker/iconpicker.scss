@@ -1,0 +1,123 @@
+.postkit-blocks-iconpicker {
+	box-sizing: border-box;
+	.label {
+		font-size: 11px;
+		font-weight: 500;
+		line-height: 1.4;
+		text-transform: uppercase;
+		display: inline-block;
+		margin-bottom: calc(8px);
+		padding: 0px;
+	}
+	.icons-libary-wrap {
+		position: relative;
+		.icon-header {
+			background: #fefefe;
+			border: 1px solid #ccc;
+			cursor: pointer;
+			display: flex;
+			height: 40px;
+			justify-content: space-between;
+			line-height: 40px;
+
+			.icon-select {
+				align-items: center;
+				display: flex;
+				gap: 15px;
+
+				.selected-icon-txt {
+					color: #adadad;
+					font-size: 12px;
+					font-style: italic;
+					padding-left: 10px;
+				}
+
+				.selected-icon {
+					text-align: center;
+					width: 45px;
+				}
+
+				.remove-icon {
+					align-items: center;
+					background: #2271b1;
+					border-radius: 50%;
+					color: #fff;
+					cursor: pointer;
+					display: flex;
+					font-size: 10px;
+					height: 15px;
+					justify-content: center;
+					line-height: 0px;
+					padding: 6px;
+					text-align: center;
+					width: 15px;
+				}
+			}
+			.icon-lib-btn {
+				background: #eee;
+				border: none;
+				border-left: 1px solid #ccc;
+				cursor: pointer;
+				margin: 0;
+				padding: 0;
+				transition: all 0.2s ease-in-out;
+				width: 45px;
+				color: #000;
+				&:hover {
+					background: #ddd;
+				}
+			}
+		}
+	}
+
+	.icons-libary {
+		background: #fefefe;
+		border: 1px solid #ccc;
+		height: 180px;
+		overflow-x: hidden;
+		overflow-y: scroll;
+		padding: 10px 5px 10px 10px;
+		position: absolute;
+		top: 45px;
+		width: 100%;
+		z-index: 9;
+
+		.icon-search {
+			margin-bottom: 10px;
+			position: sticky;
+			input {
+				border: 1px solid #ccc;
+				width: 100%;
+			}
+		}
+
+		.icons-libary-grid {
+			display: grid;
+			gap: 10px;
+			grid-template-columns: repeat(4, 1fr);
+
+			.icon-single-item {
+				background: #fff;
+				border: 1px solid #ccc;
+				border-radius: 3px;
+				cursor: pointer;
+				height: 35px;
+				line-height: 35px;
+				text-align: center;
+				transition: all 0.2s ease-in-out;
+				color: #000;
+				&:hover {
+					background: #f0f8ff;
+					color: #1561a1;
+					border-color: #2271b1;
+				}
+
+				&.active {
+					background: #f0f8ff;
+					color: #1561a1;
+					border-color: #2271b1;
+				}
+			}
+		}
+	}
+}

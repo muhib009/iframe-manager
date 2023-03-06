@@ -1,0 +1,15 @@
+{
+    "name": "postkit/postkit-blocks",
+    "description": "post related gutenberg blocks",
+    "autoload": {
+        "psr-4": {
+            "PostkitBlocks\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "postkit"
+        }
+    ],
+    "require": {}
+}

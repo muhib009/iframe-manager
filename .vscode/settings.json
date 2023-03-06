@@ -1,0 +1,12 @@
+{
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.formatOnSave": true,
+	// emmet
+	"emmet.triggerExpansionOnTab": true,
+	"emmet.includeLanguages": {
+		"javascript": "javascriptreact"
+	},
+	"postcssSorting.config": {
+		"properties-order": "alphabetical"
+	}
+}

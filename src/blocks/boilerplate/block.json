@@ -1,0 +1,29 @@
+{
+	"apiVersion": 2,
+	"name": "postkit-blocks/boilerplate",
+	"version": "0.1.0",
+	"title": "Boilerplate",
+	"category": "postkit-blocks",
+	"icon": "smiley",
+	"description": "Example Block",
+	"supports": {
+		"html": false,
+		"anchor": true
+	},
+	"attributes": {
+		"content": {
+			"type": "string",
+			"default": "Hello World!"
+		},
+		"color": {
+			"type": "string"
+		},
+		"icon": {
+			"type": "string"
+		}
+	},
+	"textdomain": "postkit-blocks",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css"
+}
