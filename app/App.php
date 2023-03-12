@@ -6,6 +6,7 @@ use PostkitBlocks\Helper\BlocksRegister;
 
 // blocks callbacks
 use PostkitBlocks\Callbacks\Test;
+use PostkitBlocks\Callbacks\Boilerplate;
 
  class App {
     /**
@@ -26,7 +27,9 @@ use PostkitBlocks\Callbacks\Test;
         $blocks = [
             [
                 'name' => 'boilerplate',
-                'args' => []
+                'args' => [
+                    'render_callback' => [ new Boilerplate(), 'render_boilerplate_block' ]
+                ]
             ],
             [
                 'name' => 'test',

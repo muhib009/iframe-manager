@@ -11,6 +11,9 @@
 		"anchor": true
 	},
 	"attributes": {
+		"uniqueId": {
+			"type": "string"
+		},
 		"content": {
 			"type": "string",
 			"default": "Hello World!"
@@ -20,6 +23,17 @@
 		},
 		"icon": {
 			"type": "string"
+		},
+		"iconSizes": {
+			"type": "object",
+			"default": {
+				"sizes": {
+					"desktop": 24,
+					"tablet": 22,
+					"mobile": 20
+				},
+				"unit": "px"
+			}
 		}
 	},
 	"textdomain": "postkit-blocks",

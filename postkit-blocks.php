@@ -92,13 +92,7 @@ use PostkitBlocks\Helper\BlocksCategory;
      * Enqueue scripts
      */
     public function enqueue_scripts(){
-        // enqueue style
-        wp_enqueue_style(
-            'postkit-blocks-fontawesome-style',
-            POSTKIT_BLOCKS_ASSETS . 'css/all.min.css',
-            [],
-            POSTKIT_BLOCKS_VERSION
-        );
+        // assets load here
     }
  }
 

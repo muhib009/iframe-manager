@@ -10,9 +10,10 @@ import { __ } from "@wordpress/i18n";
  */
 import ColorControl from "../../controls/colorcontrol/colorcontrol";
 import IconPicker from "../../controls/iconpicker/iconpicker";
+import InputControl from "../../controls/inputcontrol/inputcontrol";
 
 const Inspector = ({ attributes, setAttributes }) => {
-	const { color, icon } = attributes;
+	const { color, icon, iconSizes } = attributes;
 	return (
 		<InspectorControls>
 			<PanelBody
@@ -36,6 +37,14 @@ const Inspector = ({ attributes, setAttributes }) => {
 					value={icon}
 					attribute="icon"
 					setAttributes={setAttributes}
+				/>
+				<InputControl
+					label={__("Icon Size", "postkit-blocks")}
+					value={iconSizes}
+					attribute="iconSizes"
+					setAttributes={setAttributes}
+					min={1}
+					max={200}
 				/>
 			</PanelBody>
 		</InspectorControls>

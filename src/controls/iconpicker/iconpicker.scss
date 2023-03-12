@@ -1,13 +1,13 @@
 .postkit-blocks-iconpicker {
 	box-sizing: border-box;
 	.label {
+		display: inline-block;
 		font-size: 11px;
 		font-weight: 500;
 		line-height: 1.4;
-		text-transform: uppercase;
-		display: inline-block;
 		margin-bottom: calc(8px);
 		padding: 0px;
+		text-transform: uppercase;
 	}
 	.icons-libary-wrap {
 		position: relative;
@@ -35,6 +35,13 @@
 				.selected-icon {
 					text-align: center;
 					width: 45px;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					svg {
+						width: 15px;
+						height: 15px;
+					}
 				}
 
 				.remove-icon {
@@ -57,12 +64,12 @@
 				background: #eee;
 				border: none;
 				border-left: 1px solid #ccc;
+				color: #000;
 				cursor: pointer;
 				margin: 0;
 				padding: 0;
 				transition: all 0.2s ease-in-out;
 				width: 45px;
-				color: #000;
 				&:hover {
 					background: #ddd;
 				}
@@ -97,25 +104,33 @@
 			grid-template-columns: repeat(4, 1fr);
 
 			.icon-single-item {
+				align-items: center;
 				background: #fff;
 				border: 1px solid #ccc;
 				border-radius: 3px;
+				color: #000;
 				cursor: pointer;
+				display: flex;
 				height: 35px;
+				justify-content: center;
 				line-height: 35px;
 				text-align: center;
 				transition: all 0.2s ease-in-out;
-				color: #000;
 				&:hover {
 					background: #f0f8ff;
-					color: #1561a1;
 					border-color: #2271b1;
+					color: #1561a1;
 				}
 
 				&.active {
 					background: #f0f8ff;
-					color: #1561a1;
 					border-color: #2271b1;
+					color: #1561a1;
+				}
+				svg {
+					display: inline-block;
+					height: 15px;
+					width: 15px;
 				}
 			}
 		}

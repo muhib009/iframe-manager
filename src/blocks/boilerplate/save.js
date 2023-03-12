@@ -8,10 +8,17 @@ import { RichText, useBlockProps } from "@wordpress/block-editor";
  */
 import classnames from "classnames";
 
+// import icons
+import svgicons from "../../helper/svgicons";
+
 const Save = ({ attributes }) => {
-	const { content, color, icon } = attributes;
+	const { uniqueId, content, color, icon } = attributes;
 	return (
-		<div {...useBlockProps.save()}>
+		<div
+			{...useBlockProps.save({
+				className: uniqueId,
+			})}
+		>
 			<RichText.Content
 				tagName="h3"
 				className={classnames("heading")}
@@ -20,7 +27,7 @@ const Save = ({ attributes }) => {
 					color,
 				}}
 			/>
-			{icon && <i className={icon}></i>}
+			{icon && svgicons[icon]}
 		</div>
 	);
 };

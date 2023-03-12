@@ -1,6 +1,7 @@
 // Styles for both Editor and Frontend
 
-.wp-block-boilerplate {
-  box-sizing: border-box;
-  border: 2px solid #000;
+.wp-block-postkit-blocks-boilerplate {
+	svg {
+		display: inline-block;
+	}
 }

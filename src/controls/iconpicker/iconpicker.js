@@ -3,9 +3,10 @@
  */
 import { Fragment, useState } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
+import { Dashicon } from "@wordpress/components";
 
-// import fontAwesomeIcons
-import fontAwesomeIcons from "../../helper/icons";
+// import Icons
+import svgicons from "../../helper/svgicons";
 
 // import styles
 import "./iconpicker.scss";
@@ -24,8 +25,8 @@ const IconPicker = ({ label, value, attribute, setAttributes }) => {
 					role={openIconLib ? "dialog" : "button"}
 					onClick={(e) => {
 						if (
-							e.target.classList.contains("remove-icon") ||
-							e.target.classList.contains("fa-times")
+							e.target.classList.contains("dashicons-arrow-down-alt2") ||
+							e.target.classList.contains("dashicons-no-alt")
 						) {
 							setAttributes({ [attribute]: "" });
 						} else {
@@ -36,11 +37,9 @@ const IconPicker = ({ label, value, attribute, setAttributes }) => {
 					<div className="icon-select">
 						{value ? (
 							<Fragment>
-								<div className="selected-icon">
-									<i className={value} />
-								</div>
+								<div className="selected-icon">{svgicons[value]}</div>
 								<div className="remove-icon">
-									<i className="fas fa-times" />
+									<Dashicon icon="no-alt" />
 								</div>
 							</Fragment>
 						) : (
@@ -53,7 +52,7 @@ const IconPicker = ({ label, value, attribute, setAttributes }) => {
 						className="icon-lib-btn"
 						onClick={() => setOpenIconLib(!openIconLib)}
 					>
-						<i className={openIconLib ? "fas fa-times" : "fas fa-angle-down"} />
+						<Dashicon icon={openIconLib ? "no-alt" : "arrow-down-alt2"} />
 					</button>
 				</div>
 				{openIconLib && (
@@ -67,7 +66,7 @@ const IconPicker = ({ label, value, attribute, setAttributes }) => {
 						</div>
 						<div className="icons-libary-grid">
 							{search && search.length > 0
-								? fontAwesomeIcons
+								? Object.keys(svgicons)
 										.filter((icon) => icon.includes(search))
 										.map((icon, index) => {
 											return (
@@ -84,11 +83,11 @@ const IconPicker = ({ label, value, attribute, setAttributes }) => {
 													}}
 													role="button"
 												>
-													<i className={icon} />
+													{svgicons[icon]}
 												</div>
 											);
 										})
-								: fontAwesomeIcons.map((icon, index) => {
+								: Object.keys(svgicons).map((icon, index) => {
 										return (
 											<div
 												className={
@@ -102,7 +101,7 @@ const IconPicker = ({ label, value, attribute, setAttributes }) => {
 												}}
 												role="button"
 											>
-												<i className={icon} />
+												{svgicons[icon]}
 											</div>
 										);
 								  })}
