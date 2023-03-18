@@ -1,0 +1,19 @@
+// Styles for both Editor and Frontend
+
+.wp-block-postkit-blocks-boilerplate {
+	svg {
+		display: inline-block;
+	}
+}
+
+.ifm-image-main {
+	position: relative;
+}
+
+.ifm-edit-icon {
+	position: absolute !important;
+	top: 0;
+	right: 0;
+	background: white;
+	margin: 10px;
+}

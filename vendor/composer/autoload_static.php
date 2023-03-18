@@ -7,14 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInitfc3f99e1984a527a451e44ded91c353c
 {
     public static $prefixLengthsPsr4 = array (
-        'P' => 
+        'I' => 
         array (
-            'PostkitBlocks\\' => 14,
+            'IframeManager\\' => 14,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'PostkitBlocks\\' => 
+        'IframeManager\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
         ),

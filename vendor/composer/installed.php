@@ -1,19 +1,19 @@
 <?php return array(
     'root' => array(
-        'name' => 'postkit/postkit-blocks',
+        'name' => 'ifm/iframe-manager',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '182b5f1e833b617f748c67ba326ca749c82f7c45',
+        'reference' => '42c5a0b04d022b896b89a0730d027b00fd591107',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
         'dev' => true,
     ),
     'versions' => array(
-        'postkit/postkit-blocks' => array(
+        'ifm/iframe-manager' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '182b5f1e833b617f748c67ba326ca749c82f7c45',
+            'reference' => '42c5a0b04d022b896b89a0730d027b00fd591107',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

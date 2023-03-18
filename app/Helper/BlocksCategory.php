@@ -1,6 +1,6 @@
 <?php
 
-namespace PostkitBlocks\Helper;
+namespace IframeManager\Helper;
 
 class BlocksCategory {
     /**
@@ -20,8 +20,8 @@ class BlocksCategory {
         return array_merge(
             [
                 [
-                    'slug' => 'postkit-blocks',
-                    'title' => __( 'Postkit Blocks', 'postkit-blocks' )
+                    'slug' => 'ifm-blocks',
+                    'title' => __( 'IFM Blocks', 'iframe-manager' )
                 ],
             ],
             $categories

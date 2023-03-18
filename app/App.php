@@ -1,12 +1,11 @@
 <?php
 
-namespace PostkitBlocks;
+namespace IframeManager;
 
-use PostkitBlocks\Helper\BlocksRegister;
+use IframeManager\Helper\BlocksRegister;
 
 // blocks callbacks
-use PostkitBlocks\Callbacks\Test;
-use PostkitBlocks\Callbacks\Boilerplate;
+use IframeManager\Callbacks\Iframe;
 
  class App {
     /**
@@ -14,27 +13,21 @@ use PostkitBlocks\Callbacks\Boilerplate;
      */
     public function __construct() {
         // blocks register
-        $this->all_postkit_blocks();
+        $this->all_iframe_blocks();
     }
 
     /**
      * Register Single Block
      */
-    public function all_postkit_blocks(){
+    public function all_iframe_blocks(){
         /**
          * All blocks list
          */
         $blocks = [
             [
-                'name' => 'boilerplate',
+                'name' => 'iframe',
                 'args' => [
-                    'render_callback' => [ new Boilerplate(), 'render_boilerplate_block' ]
-                ]
-            ],
-            [
-                'name' => 'test',
-                'args' => [
-                    'render_callback' => [ new Test(), 'render_test_block' ]
+                    'render_callback' => [ new Iframe(), 'render_iframe_block' ]
                 ]
             ]
         ]; 

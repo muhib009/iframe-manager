@@ -1,15 +1,15 @@
 <?php
 
-namespace PostkitBlocks\Callbacks;
+namespace IframeManager\Callbacks;
 
 // RegisterStyle
-use PostkitBlocks\Helper\RegisterStyle;
+use IframeManager\Helper\RegisterStyle;
 
-class Boilerplate extends RegisterStyle {
+class Iframe extends RegisterStyle {
     /**
      * Test Block Callback
      */
-    public function render_boilerplate_block( $attributes, $content ) {
+    public function render_iframe_block( $attributes, $content ) {
         // handle 
         $handle = isset( $attributes['uniqueId'] ) ? $attributes['uniqueId'] :'';
 

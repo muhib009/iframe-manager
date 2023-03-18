@@ -1,10 +1,10 @@
 <?php
 /**
- * @package PostKit Blocks
+ * @package Iframe Manager Blocks
  * All blocks callbacks
  */
 
-namespace PostkitBlocks\Helper;
+namespace IframeManager\Helper;
 
 class RegisterStyle {
     /**
@@ -15,7 +15,7 @@ class RegisterStyle {
             $name,
             false,
             [],
-            POSTKIT_BLOCKS_VERSION
+            IFRAMEMANAGER_BLOCKS_VERSION
         );
         wp_enqueue_style( $name );
         wp_add_inline_style( $name, $style );

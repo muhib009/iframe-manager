@@ -3,7 +3,7 @@
  * Class to register blocks
  */
 
-namespace PostkitBlocks\Helper;
+namespace IframeManager\Helper;
 
 class BlocksRegister {
     /**
@@ -13,7 +13,7 @@ class BlocksRegister {
      */
     public function register_block( $name, $args = [] ) {
         register_block_type(
-            POSTKIT_BLOCKS_DIR . './build/blocks/' . $name,
+            IFRAMEMANAGER_BLOCKS_DIR . './build/blocks/' . $name,
             $args
         );
     }

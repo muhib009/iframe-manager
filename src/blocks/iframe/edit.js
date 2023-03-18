@@ -1,9 +1,14 @@
 /**
  * WordPress dependencies
  */
-import { RichText, useBlockProps } from "@wordpress/block-editor";
+import {
+	RichText,
+	useBlockProps,
+	BlockControls,
+} from "@wordpress/block-editor";
 import { Fragment } from "@wordpress/element";
 import { __ } from "@wordpress/i18n";
+import { ToolbarGroup, ToolbarButton } from "@wordpress/components";
 /**
  * Internal dependencies
  */
@@ -18,9 +23,16 @@ import svgicons from "../../helper/svgicons";
 //
 
 const Edit = ({ attributes, setAttributes, clientId }) => {
-	const { uniqueId, content, color, icon, iconSizes } = attributes;
+	const {
+		uniqueId,
+		iconSizes,
+		mediaType,
+		ytResourceID,
+		twitchResourceID,
+		vmResourceID,
+	} = attributes;
 	// set unique id
-	setAttributes({ uniqueId: `postkit-blocks-${clientId.slice(0, 8)}` });
+	setAttributes({ uniqueId: `iframe-blocks-${clientId.slice(0, 8)}` });
 	return (
 		<Fragment>
 			<style>
@@ -53,17 +65,26 @@ const Edit = ({ attributes, setAttributes, clientId }) => {
 					className: uniqueId,
 				})}
 			>
-				<RichText
-					tagName="h3"
-					className={classnames("heading")}
-					value={content}
-					onChange={(v) => setAttributes({ content: v })}
-					placeholder={__("write heading..", "postkit-blocks")}
-					style={{
-						color,
-					}}
-				/>
-				{icon && svgicons[icon]}
+				{mediaType === "youtube" && (
+					<div
+						data-service="youtube"
+						data-id={ytResourceID}
+						data-thumbnail="<path-to-image>"
+						data-autoscale
+					></div>
+				)}
+
+				{mediaType === "twitch" && (
+					<div
+						data-service="twitch"
+						data-id={twitchResourceID}
+						data-autoscale
+					></div>
+				)}
+
+				{mediaType === "vimeo" && (
+					<div data-service="vimeo" data-id={vmResourceID} data-autoscale></div>
+				)}
 			</div>
 		</Fragment>
 	);

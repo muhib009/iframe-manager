@@ -1,11 +1,11 @@
 {
   "apiVersion": 2,
-  "name": "postkit-blocks/boilerplate",
+  "name": "ifm/iframe",
   "version": "0.1.0",
-  "title": "Boilerplate",
-  "category": "postkit-blocks",
-  "icon": "smiley",
-  "description": "Example Block",
+  "title": "iFrame Block",
+  "category": "ifm-blocks",
+  "icon": "video-alt2",
+  "description": "A simple iFrame Manager Block",
   "supports": {
     "html": false,
     "anchor": true
@@ -34,9 +34,31 @@
         },
         "unit": "px"
       }
+    },
+    "mediaType": {
+      "type": "string",
+      "default": "youtube"
+    },
+    "ytResourceID": {
+      "type": "string",
+      "default": "FfCE-R9UugU"
+    },
+    "vmResourceID": {
+      "type": "string",
+      "default": "hQzDhqWg48ZxRmom"
+    },
+    "ytThumbnail": {
+      "type": "object"
+    },
+    "vmThumbnail": {
+      "type": "object"
+    },
+    "twitchResourceID": {
+      "type": "string",
+      "default": "spicyuuu"
     }
   },
-  "textdomain": "postkit-blocks",
+  "textdomain": "iframe-manager",
   "editorScript": "file:./index.js",
   "editorStyle": "file:./index.css",
   "style": "file:./style-index.css"

@@ -1,15 +1,15 @@
 {
-    "name": "postkit/postkit-blocks",
-    "description": "post related gutenberg blocks",
-    "autoload": {
-        "psr-4": {
-            "PostkitBlocks\\": "app/"
-        }
-    },
-    "authors": [
-        {
-            "name": "postkit"
-        }
-    ],
-    "require": {}
+	"name": "ifm/iframe-manager",
+	"description": "iFrame Manager Gutenberg Block",
+	"autoload": {
+		"psr-4": {
+			"IframeManager\\": "app/"
+		}
+	},
+	"authors": [
+		{
+			"name": "postkit"
+		}
+	],
+	"require": {}
 }

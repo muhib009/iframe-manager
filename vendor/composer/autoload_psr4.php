@@ -6,5 +6,5 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'PostkitBlocks\\' => array($baseDir . '/app'),
+    'IframeManager\\' => array($baseDir . '/app'),
 );

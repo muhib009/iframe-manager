@@ -6,7 +6,7 @@
  * Singleton trait
  */
 
-namespace PostkitBlocks\Traits;
+namespace IframeManager\Traits;
 
 trait Singleton {
     /**
