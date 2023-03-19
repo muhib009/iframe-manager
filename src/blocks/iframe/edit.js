@@ -286,6 +286,7 @@ export default function Edit({ attributes, setAttributes }) {
 			<div {...useBlockProps()}>
 				{mediaType === 'youtube' && (
 					<div
+						className="ifm_iframe__wrapper"
 						data-service="youtube"
 						data-id={ytResourceID}
 						//data-thumbnail={ytThumbnail.url}
@@ -295,6 +296,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 				{mediaType === 'twitch' && (
 					<div
+						className="ifm_iframe__wrapper"
 						data-service="twitch"
 						data-id={twitchResourceID}
 						data-autoscale
@@ -303,6 +305,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 				{mediaType === 'vimeo' && (
 					<div
+						className="ifm_iframe__wrapper"
 						data-service="vimeo"
 						//data-thumbnail={vmThumbnail.url}
 						data-id={vmResourceID}
@@ -312,6 +315,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 				{mediaType === 'dailymotion' && (
 					<div
+						className="ifm_iframe__wrapper"
 						data-service="dailymotion"
 						// data-thumbnail={dailyMotionThumbnail.url}
 						data-id={dailyMotionResourceID}
@@ -321,6 +325,7 @@ export default function Edit({ attributes, setAttributes }) {
 
 				{mediaType === 'googlemaps' && (
 					<div
+						className="ifm_iframe__wrapper"
 						data-service="googlemaps"
 						data-id={gmResourceID}
 						data-autoscale

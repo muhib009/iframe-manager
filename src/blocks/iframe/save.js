@@ -20,6 +20,7 @@ export default function save({ attributes }) {
 		<div {...useBlockProps.save()}>
 			{mediaType === 'youtube' && (
 				<div
+					className="ifm_iframe__wrapper"
 					data-service="youtube"
 					data-id={ytResourceID}
 					// data-thumbnail={ytThumbnail.url}
@@ -29,6 +30,7 @@ export default function save({ attributes }) {
 
 			{mediaType === 'twitch' && (
 				<div
+					className="ifm_iframe__wrapper"
 					data-service="twitch"
 					data-id={twitchResourceID}
 					data-autoscale
@@ -37,6 +39,7 @@ export default function save({ attributes }) {
 
 			{mediaType === 'vimeo' && (
 				<div
+					className="ifm_iframe__wrapper"
 					data-service="vimeo"
 					data-id={vmResourceID}
 					// data-thumbnail={vmThumbnail.url}
@@ -46,6 +49,7 @@ export default function save({ attributes }) {
 
 			{mediaType === 'dailymotion' && (
 				<div
+					className="ifm_iframe__wrapper"
 					data-service="dailymotion"
 					data-id={dailyMotionResourceID}
 					data-autoscale
@@ -54,6 +58,7 @@ export default function save({ attributes }) {
 
 			{mediaType === 'googlemaps' && (
 				<div
+					className="ifm_iframe__wrapper"
 					data-service="googlemaps"
 					data-id={gmResourceID}
 					data-autoscale

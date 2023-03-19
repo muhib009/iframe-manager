@@ -112,8 +112,7 @@ final class IFM_BLOCKS_CLASS {
         
         // scripts loaded here
         wp_enqueue_script( 'iframe-manager-js', IFM_INC_URL . 'js/iframemanager.js', array(), IFM_VERSION, true );
-        wp_enqueue_script( 'iframe-app-js', IFM_INC_URL . 'js/app.js', array('iframe-manager-js'), IFM_VERSION, true );
-		wp_enqueue_script( 'ifm-lib', IFM_INC_URL . 'js/plugin.js', array(), IFM_VERSION, true );
+        wp_enqueue_script( 'iframe-app-js', IFM_INC_URL . 'js/app.js', array('iframe-manager-js', 'jquery'), IFM_VERSION, true );
 	}
 
 	// defer scripts

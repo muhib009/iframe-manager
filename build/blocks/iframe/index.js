@@ -224,25 +224,30 @@ function Edit(_ref) {
       gmResourceID: value
     })
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), mediaType === 'youtube' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ifm_iframe__wrapper",
     "data-service": "youtube",
     "data-id": ytResourceID //data-thumbnail={ytThumbnail.url}
     ,
     "data-autoscale": true
   }), mediaType === 'twitch' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ifm_iframe__wrapper",
     "data-service": "twitch",
     "data-id": twitchResourceID,
     "data-autoscale": true
   }), mediaType === 'vimeo' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ifm_iframe__wrapper",
     "data-service": "vimeo" //data-thumbnail={vmThumbnail.url}
     ,
     "data-id": vmResourceID,
     "data-autoscale": true
   }), mediaType === 'dailymotion' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ifm_iframe__wrapper",
     "data-service": "dailymotion" // data-thumbnail={dailyMotionThumbnail.url}
     ,
     "data-id": dailyMotionResourceID,
     "data-autoscale": true
   }), mediaType === 'googlemaps' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ifm_iframe__wrapper",
     "data-service": "googlemaps",
     "data-id": gmResourceID,
     "data-autoscale": true
@@ -319,24 +324,29 @@ function save(_ref) {
     gmResourceID
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(), mediaType === 'youtube' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ifm_iframe__wrapper",
     "data-service": "youtube",
     "data-id": ytResourceID // data-thumbnail={ytThumbnail.url}
     ,
     "data-autoscale": true
   }), mediaType === 'twitch' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ifm_iframe__wrapper",
     "data-service": "twitch",
     "data-id": twitchResourceID,
     "data-autoscale": true
   }), mediaType === 'vimeo' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ifm_iframe__wrapper",
     "data-service": "vimeo",
     "data-id": vmResourceID // data-thumbnail={vmThumbnail.url}
     ,
     "data-autoscale": true
   }), mediaType === 'dailymotion' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ifm_iframe__wrapper",
     "data-service": "dailymotion",
     "data-id": dailyMotionResourceID,
     "data-autoscale": true
   }), mediaType === 'googlemaps' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ifm_iframe__wrapper",
     "data-service": "googlemaps",
     "data-id": gmResourceID,
     "data-autoscale": true
