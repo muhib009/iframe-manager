@@ -1,0 +1,60 @@
+{
+  "apiVersion": 2,
+  "name": "ifm/iframe",
+  "version": "0.1.0",
+  "title": "iFrame Manager Block",
+  "category": "ifm",
+  "icon": "video-alt2",
+  "description": "Example block written with ESNext standard and JSX support build step required.",
+  "supports": {
+    "html": false,
+    "anchor": true
+  },
+  "attributes": {
+    "content": {
+      "type": "string",
+      "default": "Hello World!"
+    },
+    "color": {
+      "type": "string",
+      "default": "#00ff00"
+    },
+    "mediaType": {
+      "type": "string",
+      "default": "youtube"
+    },
+    "twitchResourceID": {
+      "type": "string",
+      "default": "1768179226"
+    },
+    "ytResourceID": {
+      "type": "string",
+      "default": "FfCE-R9UugU"
+    },
+    "vmResourceID": {
+      "type": "string",
+      "default": "702055416"
+    },
+    "dailyMotionResourceID": {
+      "type": "string",
+      "default": "x8hvehx"
+    },
+    "gmResourceID": {
+      "type": "string",
+      "default": "x8hvehx"
+    },
+    "ytThumbnail": {
+      "type": "object"
+    },
+    "vmThumbnail": {
+      "type": "object"
+    },
+    "dailyMotionThumbnail": {
+      "type": "object"
+    }
+  },
+  "textdomain": "ifm-manager",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css"
+}
