@@ -22,7 +22,7 @@ export default function save({ attributes }) {
 				<div
 					data-service="youtube"
 					data-id={ytResourceID}
-					// data-thumbnail={ytThumbnail.url}
+					//data-thumbnail={ytThumbnail.url}
 					data-autoscale
 				></div>
 			)}

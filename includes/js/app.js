@@ -1,6 +1,9 @@
 (function () {
 	const im = iframemanager();
 
+	const abc = im.attr('mediaType');
+	console.log(abc);
+
 	// Example with youtube embed
 	im.run({
 		currLang: 'en',

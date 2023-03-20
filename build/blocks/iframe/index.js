@@ -320,7 +320,7 @@ function save(_ref) {
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(), mediaType === 'youtube' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     "data-service": "youtube",
-    "data-id": ytResourceID // data-thumbnail={ytThumbnail.url}
+    "data-id": ytResourceID //data-thumbnail={ytThumbnail.url}
     ,
     "data-autoscale": true
   }), mediaType === 'twitch' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
