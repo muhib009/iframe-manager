@@ -23,8 +23,6 @@ import colors from '../../utilities/colors-palette';
 
 export default function Edit( { attributes, setAttributes } ) {
 	const {
-		content,
-		color,
 		mediaType,
 		ytResourceID,
 		ytThumbnail,
@@ -32,6 +30,8 @@ export default function Edit( { attributes, setAttributes } ) {
 		twitchParentName,
 		vmResourceID,
 		gmResourceID,
+		gmapv2ResourceID,
+		gmapv2API,
 		vmThumbnail,
 		dailyMotionResourceID,
 		dailyMotionThumbnail,
@@ -54,7 +54,8 @@ export default function Edit( { attributes, setAttributes } ) {
 							{ label: 'Youtube', value: 'youtube' },
 							{ label: 'Dailymotion', value: 'dailymotion' },
 							{ label: 'Vimeo', value: 'vimeo' },
-							{ label: 'Google Map', value: 'googlemaps' },
+							{ label: 'Google Map v1', value: 'googlemaps' },
+							{ label: 'Google Map v2', value: 'googlemapsv2' },
 						] }
 						onChange={ ( value ) =>
 							setAttributes( { mediaType: value } )
@@ -296,6 +297,29 @@ export default function Edit( { attributes, setAttributes } ) {
 							}
 						/>
 					) }
+
+					{ mediaType === 'googlemapsv2' && (
+						<>
+							<TextControl
+								label="Location Name"
+								value={ gmapv2ResourceID }
+								onChange={ ( value ) =>
+									setAttributes( {
+										gmapv2ResourceID: value,
+									} )
+								}
+							/>
+							<TextControl
+								label="API Key"
+								value={ gmapv2API }
+								onChange={ ( value ) =>
+									setAttributes( {
+										gmapv2ResourceID: value,
+									} )
+								}
+							/>
+						</>
+					) }
 				</PanelBody>
 				<PanelBody
 					title={ __( 'Notice Settings', 'ifm-manager' ) }
@@ -388,7 +412,20 @@ export default function Edit( { attributes, setAttributes } ) {
 					<div
 						className="ifm_iframe__wrapper"
 						data-service="googlemaps"
-						data-id={ gmResourceID }
+						data-gid={ gmResourceID }
+						data-notice={ noticeText }
+						data-loadbtn={ loadVideoButton }
+						data-hidewarning={ hideWarningButton }
+						data-autoscale
+					></div>
+				) }
+
+				{ mediaType === 'googlemapsv2' && (
+					<div
+						className="ifm_iframe__wrapper"
+						data-service="googlemapsv2"
+						data-gmapid={ gmapv2ResourceID }
+						data-api={ gmapv2API }
 						data-notice={ noticeText }
 						data-loadbtn={ loadVideoButton }
 						data-hidewarning={ hideWarningButton }

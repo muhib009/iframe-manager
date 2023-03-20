@@ -9,10 +9,10 @@ export default function save( { attributes } ) {
 		twitchResourceID,
 		twitchParentName,
 		vmResourceID,
-		vmThumbnail,
 		dailyMotionResourceID,
-		dailyMotionThumbnail,
 		gmResourceID,
+		gmapv2API,
+		gmapv2ResourceID,
 		noticeText,
 		loadVideoButton,
 		hideWarningButton,
@@ -75,7 +75,20 @@ export default function save( { attributes } ) {
 				<div
 					className="ifm_iframe__wrapper"
 					data-service="googlemaps"
-					data-id={ gmResourceID }
+					data-gid={ gmResourceID }
+					data-notice={ noticeText }
+					data-loadbtn={ loadVideoButton }
+					data-hidewarning={ hideWarningButton }
+					data-autoscale
+				></div>
+			) }
+
+			{ mediaType === 'googlemapsv2' && (
+				<div
+					className="ifm_iframe__wrapper"
+					data-service="googlemapsv2"
+					data-gmapid={ gmapv2ResourceID }
+					data-api={ gmapv2API }
 					data-notice={ noticeText }
 					data-loadbtn={ loadVideoButton }
 					data-hidewarning={ hideWarningButton }

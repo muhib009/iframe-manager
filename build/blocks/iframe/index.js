@@ -39,8 +39,6 @@ function Edit(_ref) {
     setAttributes
   } = _ref;
   const {
-    content,
-    color,
     mediaType,
     ytResourceID,
     ytThumbnail,
@@ -48,6 +46,8 @@ function Edit(_ref) {
     twitchParentName,
     vmResourceID,
     gmResourceID,
+    gmapv2ResourceID,
+    gmapv2API,
     vmThumbnail,
     dailyMotionResourceID,
     dailyMotionThumbnail,
@@ -74,8 +74,11 @@ function Edit(_ref) {
       label: 'Vimeo',
       value: 'vimeo'
     }, {
-      label: 'Google Map',
+      label: 'Google Map v1',
       value: 'googlemaps'
+    }, {
+      label: 'Google Map v2',
+      value: 'googlemapsv2'
     }],
     onChange: value => setAttributes({
       mediaType: value
@@ -233,7 +236,19 @@ function Edit(_ref) {
     onChange: value => setAttributes({
       gmResourceID: value
     })
-  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+  }), mediaType === 'googlemapsv2' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: "Location Name",
+    value: gmapv2ResourceID,
+    onChange: value => setAttributes({
+      gmapv2ResourceID: value
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: "API Key",
+    value: gmapv2API,
+    onChange: value => setAttributes({
+      gmapv2ResourceID: value
+    })
+  }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Notice Settings', 'ifm-manager'),
     initialOpen: false
   }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextareaControl, {
@@ -291,7 +306,16 @@ function Edit(_ref) {
   }), mediaType === 'googlemaps' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ifm_iframe__wrapper",
     "data-service": "googlemaps",
-    "data-id": gmResourceID,
+    "data-gid": gmResourceID,
+    "data-notice": noticeText,
+    "data-loadbtn": loadVideoButton,
+    "data-hidewarning": hideWarningButton,
+    "data-autoscale": true
+  }), mediaType === 'googlemapsv2' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ifm_iframe__wrapper",
+    "data-service": "googlemapsv2",
+    "data-gmapid": gmapv2ResourceID,
+    "data-api": gmapv2API,
     "data-notice": noticeText,
     "data-loadbtn": loadVideoButton,
     "data-hidewarning": hideWarningButton,
@@ -362,10 +386,10 @@ function save(_ref) {
     twitchResourceID,
     twitchParentName,
     vmResourceID,
-    vmThumbnail,
     dailyMotionResourceID,
-    dailyMotionThumbnail,
     gmResourceID,
+    gmapv2API,
+    gmapv2ResourceID,
     noticeText,
     loadVideoButton,
     hideWarningButton
@@ -408,7 +432,16 @@ function save(_ref) {
   }), mediaType === 'googlemaps' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ifm_iframe__wrapper",
     "data-service": "googlemaps",
-    "data-id": gmResourceID,
+    "data-gid": gmResourceID,
+    "data-notice": noticeText,
+    "data-loadbtn": loadVideoButton,
+    "data-hidewarning": hideWarningButton,
+    "data-autoscale": true
+  }), mediaType === 'googlemapsv2' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
+    className: "ifm_iframe__wrapper",
+    "data-service": "googlemapsv2",
+    "data-gmapid": gmapv2ResourceID,
+    "data-api": gmapv2API,
     "data-notice": noticeText,
     "data-loadbtn": loadVideoButton,
     "data-hidewarning": hideWarningButton,
@@ -531,7 +564,7 @@ module.exports = window["wp"]["i18n"];
   \**************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"apiVersion":2,"name":"ifm/iframe","version":"0.1.0","title":"iFrame Manager Block","category":"ifm","icon":"video-alt2","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"attributes":{"content":{"type":"string","default":"Hello World!"},"color":{"type":"string","default":"#00ff00"},"mediaType":{"type":"string","default":"youtube"},"twitchResourceID":{"type":"string","default":"esl_csgo"},"twitchParentName":{"type":"string","default":"valvesoftware.com"},"ytResourceID":{"type":"string","default":"FfCE-R9UugU"},"vmResourceID":{"type":"string","default":"702055416"},"dailyMotionResourceID":{"type":"string","default":"x8i60lu"},"gmResourceID":{"type":"string","default":"x8hvehx"},"ytThumbnail":{"type":"object"},"vmThumbnail":{"type":"object"},"dailyMotionThumbnail":{"type":"object"},"noticeText":{"type":"string","default":"This content is hosted by a third party. By showing the external content you accept the terms and conditions of youtube.com."},"loadVideoButton":{"type":"string","default":"Load Video"},"hideWarningButton":{"type":"string","default":"Don\'t Ask Again"}},"textdomain":"ifm-manager","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"ifm/iframe","version":"0.1.0","title":"iFrame Manager Block","category":"ifm","icon":"video-alt2","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"attributes":{"content":{"type":"string","default":"Hello World!"},"color":{"type":"string","default":"#00ff00"},"mediaType":{"type":"string","default":"youtube"},"twitchResourceID":{"type":"string","default":"esl_csgo"},"twitchParentName":{"type":"string","default":"valvesoftware.com"},"ytResourceID":{"type":"string","default":"FfCE-R9UugU"},"vmResourceID":{"type":"string","default":"702055416"},"dailyMotionResourceID":{"type":"string","default":"x8i60lu"},"gmResourceID":{"type":"string","default":"!1m18!1m12!1m3!1d14529.923101878829!2d90.77410692743311!3d24.434099648106773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3756918773180af5%3A0x530a9427210ef003!2sKishoreganj!5e0!3m2!1sen!2sbd!4v1679212510886!5m2!1sen!2sbd"},"gmapv2ResourceID":{"type":"string","default":"Space+Needle,Seattle+WA"},"gmapv2API":{"type":"string","default":"AIzaSyAtGqLKMZpQU12ST7omK_yIxieeXsRGm2Q"},"ytThumbnail":{"type":"object"},"vmThumbnail":{"type":"object"},"dailyMotionThumbnail":{"type":"object"},"noticeText":{"type":"string","default":"This content is hosted by a third party. By showing the external content you accept the terms and conditions of youtube.com."},"loadVideoButton":{"type":"string","default":"Load Video"},"hideWarningButton":{"type":"string","default":"Don\'t Ask Again"}},"textdomain":"ifm-manager","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

@@ -45,7 +45,15 @@
     },
     "gmResourceID": {
       "type": "string",
-      "default": "x8hvehx"
+      "default": "!1m18!1m12!1m3!1d14529.923101878829!2d90.77410692743311!3d24.434099648106773!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3756918773180af5%3A0x530a9427210ef003!2sKishoreganj!5e0!3m2!1sen!2sbd!4v1679212510886!5m2!1sen!2sbd"
+    },
+    "gmapv2ResourceID": {
+      "type": "string",
+      "default": "Space+Needle,Seattle+WA"
+    },
+    "gmapv2API": {
+      "type": "string",
+      "default": "AIzaSyAtGqLKMZpQU12ST7omK_yIxieeXsRGm2Q"
     },
     "ytThumbnail": {
       "type": "object"
