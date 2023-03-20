@@ -45,11 +45,15 @@ function Edit(_ref) {
     ytResourceID,
     ytThumbnail,
     twitchResourceID,
+    twitchParentName,
     vmResourceID,
     gmResourceID,
     vmThumbnail,
     dailyMotionResourceID,
-    dailyMotionThumbnail
+    dailyMotionThumbnail,
+    noticeText,
+    loadVideoButton,
+    hideWarningButton
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.InspectorControls, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
     title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Media Settings', 'ifm-manager'),
@@ -121,13 +125,19 @@ function Edit(_ref) {
         className: "scb-image-upload-btn"
       }, (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Add Image', 'ifm-manager'));
     }
-  }))), mediaType === 'twitch' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+  }))), mediaType === 'twitch' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(Fragment, null, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
     label: "Resource ID",
     value: twitchResourceID,
     onChange: value => setAttributes({
       twitchResourceID: value
     })
-  }), mediaType === 'vimeo' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: "Channel Name",
+    value: twitchParentName,
+    onChange: value => setAttributes({
+      twitchParentName: value
+    })
+  })), mediaType === 'vimeo' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
     label: "Resource ID",
     value: vmResourceID,
     onChange: value => setAttributes({
@@ -223,33 +233,68 @@ function Edit(_ref) {
     onChange: value => setAttributes({
       gmResourceID: value
     })
+  })), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.PanelBody, {
+    title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__.__)('Notice Settings', 'ifm-manager'),
+    initialOpen: false
+  }, (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextareaControl, {
+    label: "Notice",
+    help: "This content is hosted by a third party. By showing the external content you accept the terms and conditions of youtube.com.",
+    value: noticeText,
+    onChange: value => setAttributes({
+      noticeText: value
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: "Load Video Button Text",
+    value: loadVideoButton,
+    onChange: value => setAttributes({
+      loadVideoButton: value
+    })
+  }), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)(_wordpress_components__WEBPACK_IMPORTED_MODULE_3__.TextControl, {
+    label: "Hide Notice Button Text",
+    value: hideWarningButton,
+    onChange: value => setAttributes({
+      hideWarningButton: value
+    })
   }))), (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_2__.useBlockProps)(), mediaType === 'youtube' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ifm_iframe__wrapper",
     "data-service": "youtube",
-    "data-id": ytResourceID //data-thumbnail={ytThumbnail.url}
-    ,
+    "data-yid": ytResourceID,
+    "data-notice": noticeText,
+    "data-loadbtn": loadVideoButton,
+    "data-hidewarning": hideWarningButton,
     "data-autoscale": true
   }), mediaType === 'twitch' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ifm_iframe__wrapper",
     "data-service": "twitch",
-    "data-id": twitchResourceID,
+    "data-tid": twitchResourceID,
+    "data-parentname": twitchParentName,
+    "data-notice": noticeText,
+    "data-loadbtn": loadVideoButton,
+    "data-hidewarning": hideWarningButton,
     "data-autoscale": true
   }), mediaType === 'vimeo' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ifm_iframe__wrapper",
-    "data-service": "vimeo" //data-thumbnail={vmThumbnail.url}
-    ,
-    "data-id": vmResourceID,
+    "data-service": "vimeo",
+    "data-vid": vmResourceID,
+    "data-notice": noticeText,
+    "data-loadbtn": loadVideoButton,
+    "data-hidewarning": hideWarningButton,
     "data-autoscale": true
   }), mediaType === 'dailymotion' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ifm_iframe__wrapper",
-    "data-service": "dailymotion" // data-thumbnail={dailyMotionThumbnail.url}
-    ,
-    "data-id": dailyMotionResourceID,
+    "data-service": "dailymotion",
+    "data-did": dailyMotionResourceID,
+    "data-notice": noticeText,
+    "data-loadbtn": loadVideoButton,
+    "data-hidewarning": hideWarningButton,
     "data-autoscale": true
   }), mediaType === 'googlemaps' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ifm_iframe__wrapper",
     "data-service": "googlemaps",
     "data-id": gmResourceID,
+    "data-notice": noticeText,
+    "data-loadbtn": loadVideoButton,
+    "data-hidewarning": hideWarningButton,
     "data-autoscale": true
   })));
 }
@@ -311,44 +356,62 @@ function save(_ref) {
     attributes
   } = _ref;
   const {
-    content,
-    color,
     mediaType,
     ytResourceID,
     ytThumbnail,
     twitchResourceID,
+    twitchParentName,
     vmResourceID,
     vmThumbnail,
     dailyMotionResourceID,
     dailyMotionThumbnail,
-    gmResourceID
+    gmResourceID,
+    noticeText,
+    loadVideoButton,
+    hideWarningButton
   } = attributes;
   return (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps.save(), mediaType === 'youtube' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ifm_iframe__wrapper",
     "data-service": "youtube",
-    "data-id": ytResourceID //data-thumbnail={ytThumbnail.url}
+    "data-yid": ytResourceID,
+    "data-notice": noticeText,
+    "data-loadbtn": loadVideoButton,
+    "data-hidewarning": hideWarningButton //data-thumbnail={ ytThumbnail.url }
     ,
     "data-autoscale": true
   }), mediaType === 'twitch' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ifm_iframe__wrapper",
     "data-service": "twitch",
-    "data-id": twitchResourceID,
+    "data-tid": twitchResourceID,
+    "data-parentname": twitchParentName,
+    "data-notice": noticeText,
+    "data-loadbtn": loadVideoButton,
+    "data-hidewarning": hideWarningButton,
     "data-autoscale": true
   }), mediaType === 'vimeo' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ifm_iframe__wrapper",
     "data-service": "vimeo",
-    "data-id": vmResourceID // data-thumbnail={vmThumbnail.url}
+    "data-vid": vmResourceID,
+    "data-notice": noticeText,
+    "data-loadbtn": loadVideoButton,
+    "data-hidewarning": hideWarningButton // data-thumbnail={vmThumbnail.url}
     ,
     "data-autoscale": true
   }), mediaType === 'dailymotion' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ifm_iframe__wrapper",
     "data-service": "dailymotion",
-    "data-id": dailyMotionResourceID,
+    "data-did": dailyMotionResourceID,
+    "data-notice": noticeText,
+    "data-loadbtn": loadVideoButton,
+    "data-hidewarning": hideWarningButton,
     "data-autoscale": true
   }), mediaType === 'googlemaps' && (0,_wordpress_element__WEBPACK_IMPORTED_MODULE_0__.createElement)("div", {
     className: "ifm_iframe__wrapper",
     "data-service": "googlemaps",
     "data-id": gmResourceID,
+    "data-notice": noticeText,
+    "data-loadbtn": loadVideoButton,
+    "data-hidewarning": hideWarningButton,
     "data-autoscale": true
   }));
 }
@@ -468,7 +531,7 @@ module.exports = window["wp"]["i18n"];
   \**************************************/
 /***/ (function(module) {
 
-module.exports = JSON.parse('{"apiVersion":2,"name":"ifm/iframe","version":"0.1.0","title":"iFrame Manager Block","category":"ifm","icon":"video-alt2","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"attributes":{"content":{"type":"string","default":"Hello World!"},"color":{"type":"string","default":"#00ff00"},"mediaType":{"type":"string","default":"youtube"},"twitchResourceID":{"type":"string","default":"1768179226"},"ytResourceID":{"type":"string","default":"FfCE-R9UugU"},"vmResourceID":{"type":"string","default":"702055416"},"dailyMotionResourceID":{"type":"string","default":"x8hvehx"},"gmResourceID":{"type":"string","default":"x8hvehx"},"ytThumbnail":{"type":"object"},"vmThumbnail":{"type":"object"},"dailyMotionThumbnail":{"type":"object"}},"textdomain":"ifm-manager","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
+module.exports = JSON.parse('{"apiVersion":2,"name":"ifm/iframe","version":"0.1.0","title":"iFrame Manager Block","category":"ifm","icon":"video-alt2","description":"Example block written with ESNext standard and JSX support build step required.","supports":{"html":false,"anchor":true},"attributes":{"content":{"type":"string","default":"Hello World!"},"color":{"type":"string","default":"#00ff00"},"mediaType":{"type":"string","default":"youtube"},"twitchResourceID":{"type":"string","default":"esl_csgo"},"twitchParentName":{"type":"string","default":"valvesoftware.com"},"ytResourceID":{"type":"string","default":"FfCE-R9UugU"},"vmResourceID":{"type":"string","default":"702055416"},"dailyMotionResourceID":{"type":"string","default":"x8i60lu"},"gmResourceID":{"type":"string","default":"x8hvehx"},"ytThumbnail":{"type":"object"},"vmThumbnail":{"type":"object"},"dailyMotionThumbnail":{"type":"object"},"noticeText":{"type":"string","default":"This content is hosted by a third party. By showing the external content you accept the terms and conditions of youtube.com."},"loadVideoButton":{"type":"string","default":"Load Video"},"hideWarningButton":{"type":"string","default":"Don\'t Ask Again"}},"textdomain":"ifm-manager","editorScript":"file:./index.js","editorStyle":"file:./index.css","style":"file:./style-index.css"}');
 
 /***/ })
 

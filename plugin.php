@@ -112,14 +112,23 @@ final class IFM_BLOCKS_CLASS {
         
         // scripts loaded here
         wp_enqueue_script( 'iframe-manager-js', IFM_INC_URL . 'js/iframemanager.js', array(), IFM_VERSION, true );
-        wp_enqueue_script( 'iframe-app-js', IFM_INC_URL . 'js/app.js', array('iframe-manager-js', 'jquery'), IFM_VERSION, true );
-	}
+        
+		if((is_admin())){
+			wp_enqueue_script( 'iframe-app-js', IFM_INC_URL . 'js/app.js', array('iframe-manager-js', 'jquery'), IFM_VERSION, true );
+		}
+
+		if(!(is_admin())){
+			wp_enqueue_script( 'iframe-frontend-js', IFM_INC_URL . 'js/frontend.js', array('iframe-manager-js', 'jquery'), IFM_VERSION, true );
+		}
+		}
+        
 
 	// defer scripts
 	public function def_enqueue_scripts( $tag, $handle, $src ) {
         $defer = array( 
           'iframe-manager-js',
           'iframe-app-js',
+          'iframe-frontend-js',
         );
         if ( in_array( $handle, $defer ) ) {
            return '<script defer src="' . $src . '" type="text/javascript"></script>' . "\n";

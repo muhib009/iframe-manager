@@ -25,7 +25,11 @@
 		},
 		"twitchResourceID": {
 			"type": "string",
-			"default": "1768179226"
+			"default": "esl_csgo"
+		},
+		"twitchParentName": {
+			"type": "string",
+			"default": "valvesoftware.com"
 		},
 		"ytResourceID": {
 			"type": "string",
@@ -37,7 +41,7 @@
 		},
 		"dailyMotionResourceID": {
 			"type": "string",
-			"default": "x8hvehx"
+			"default": "x8i60lu"
 		},
 		"gmResourceID": {
 			"type": "string",
@@ -51,6 +55,18 @@
 		},
 		"dailyMotionThumbnail": {
 			"type": "object"
+		},
+		"noticeText": {
+			"type": "string",
+			"default": "This content is hosted by a third party. By showing the external content you accept the terms and conditions of youtube.com."
+		},
+		"loadVideoButton": {
+			"type": "string",
+			"default": "Load Video"
+		},
+		"hideWarningButton": {
+			"type": "string",
+			"default": "Don't Ask Again"
 		}
 	},
 	"textdomain": "ifm-manager",

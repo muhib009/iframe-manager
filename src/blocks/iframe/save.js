@@ -1,69 +1,87 @@
 // import { __ } from '@wordpress/i18n';
 import { useBlockProps, RichText } from '@wordpress/block-editor';
 
-export default function save({ attributes }) {
+export default function save( { attributes } ) {
 	const {
-		content,
-		color,
 		mediaType,
 		ytResourceID,
 		ytThumbnail,
 		twitchResourceID,
+		twitchParentName,
 		vmResourceID,
 		vmThumbnail,
 		dailyMotionResourceID,
 		dailyMotionThumbnail,
 		gmResourceID,
+		noticeText,
+		loadVideoButton,
+		hideWarningButton,
 	} = attributes;
 
 	return (
-		<div {...useBlockProps.save()}>
-			{mediaType === 'youtube' && (
+		<div { ...useBlockProps.save() }>
+			{ mediaType === 'youtube' && (
 				<div
 					className="ifm_iframe__wrapper"
 					data-service="youtube"
-					data-id={ytResourceID}
-					//data-thumbnail={ytThumbnail.url}
+					data-yid={ ytResourceID }
+					data-notice={ noticeText }
+					data-loadbtn={ loadVideoButton }
+					data-hidewarning={ hideWarningButton }
+					//data-thumbnail={ ytThumbnail.url }
 					data-autoscale
 				></div>
-			)}
+			) }
 
-			{mediaType === 'twitch' && (
+			{ mediaType === 'twitch' && (
 				<div
 					className="ifm_iframe__wrapper"
 					data-service="twitch"
-					data-id={twitchResourceID}
+					data-tid={ twitchResourceID }
+					data-parentname={ twitchParentName }
+					data-notice={ noticeText }
+					data-loadbtn={ loadVideoButton }
+					data-hidewarning={ hideWarningButton }
 					data-autoscale
 				></div>
-			)}
+			) }
 
-			{mediaType === 'vimeo' && (
+			{ mediaType === 'vimeo' && (
 				<div
 					className="ifm_iframe__wrapper"
 					data-service="vimeo"
-					data-id={vmResourceID}
+					data-vid={ vmResourceID }
+					data-notice={ noticeText }
+					data-loadbtn={ loadVideoButton }
+					data-hidewarning={ hideWarningButton }
 					// data-thumbnail={vmThumbnail.url}
 					data-autoscale
 				></div>
-			)}
+			) }
 
-			{mediaType === 'dailymotion' && (
+			{ mediaType === 'dailymotion' && (
 				<div
 					className="ifm_iframe__wrapper"
 					data-service="dailymotion"
-					data-id={dailyMotionResourceID}
+					data-did={ dailyMotionResourceID }
+					data-notice={ noticeText }
+					data-loadbtn={ loadVideoButton }
+					data-hidewarning={ hideWarningButton }
 					data-autoscale
 				></div>
-			)}
+			) }
 
-			{mediaType === 'googlemaps' && (
+			{ mediaType === 'googlemaps' && (
 				<div
 					className="ifm_iframe__wrapper"
 					data-service="googlemaps"
-					data-id={gmResourceID}
+					data-id={ gmResourceID }
+					data-notice={ noticeText }
+					data-loadbtn={ loadVideoButton }
+					data-hidewarning={ hideWarningButton }
 					data-autoscale
 				></div>
-			)}
+			) }
 		</div>
 	);
 }
