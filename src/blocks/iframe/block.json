@@ -53,7 +53,7 @@
 		},
 		"gmapv2API": {
 			"type": "string",
-			"default": "AIzaSyAtGqLKMZpQU12ST7omK_yIxieeXsRGm2Q"
+			"default": ""
 		},
 		"ytThumbnail": {
 			"type": "object"
