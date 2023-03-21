@@ -6,7 +6,7 @@
 	iframeItems.each( function () {
 		const $thisframe = $( this );
 		const serviceType = $thisframe.data( 'service' );
-		const resourceId = $thisframe.data( 'yid' );
+		const yotubeId = $thisframe.data( 'yid' );
 		const videomId = $thisframe.data( 'vid' );
 		const twitchId = $thisframe.data( 'tid' );
 		const dailymotionId = $thisframe.data( 'did' );
@@ -24,9 +24,9 @@
 				currLang: 'en',
 				services: {
 					youtube: {
-						embedUrl: `https://www.youtube-nocookie.com/embed/${ resourceId }`,
+						embedUrl: `https://www.youtube-nocookie.com/embed/${ yotubeId }`,
 
-						thumbnailUrl: `${ thumbnailUrl }`,
+						//thumbnailUrl: `${ thumbnailUrl }`,
 
 						iframe: {
 							allow: 'accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen;',
